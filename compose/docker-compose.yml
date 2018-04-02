@@ -2,13 +2,13 @@ version: '3'
 services:
     workspace:
         container_name: workspace
-        build: ../php7.1
+        image: kimnguyen/docker-apache-php
         restart: always
         tty: true
         ports:
             - "${APP_PORT:-8000}:80"
         volumes:
-            - ./:/var/www/html
+            - ./:/var/www/html:rw
 
     mysql:
         container_name: db
